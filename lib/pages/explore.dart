@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:suffice/widgets/custom_card.dart';
-import 'package:suffice/widgets/search_bar.dart';
+import 'package:suffice/widgets/explore_top_section.dart';
+import 'package:suffice/widgets/suggested_professionals.dart';
 
 class ExplorePage extends StatefulWidget {
   const ExplorePage({Key? key, required this.usertype}) : super(key: key);
@@ -22,7 +22,6 @@ class _ExplorePageState extends State<ExplorePage> {
     setState(() {
       userLocation = location;
     });
-    print(userLocation);
   }
 
   Future _getLocation() async {
@@ -54,73 +53,27 @@ class _ExplorePageState extends State<ExplorePage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    _getLocation();
+  }
+
+  @override
   Widget build(BuildContext context) {
     setState(() {
       this.usertype = widget._getUsertype();
-      _getLocation();
     });
+
     String username = _getUsername();
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color.fromRGBO(244, 244, 244, 1),
-        body: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Container(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 25),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    child: Column(
-                      children: [
-                        Text(
-                          username,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 26,
-                              color: Colors.black),
-                        ),
-                        Text(
-                          this.userLocation,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14,
-                              color: Color.fromRGBO(170, 170, 170, 1)),
-                        )
-                      ],
-                    ),
-                  ),
-                  SearchBar(),
-                  Container(
-                    child: Column(
-                      children: [
-                        Text(
-                          "ELECTRICIANS",
-                          style: TextStyle(
-                              color: Color.fromRGBO(170, 170, 170, 1),
-                              fontWeight: FontWeight.bold),
-                        ),
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 20),
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              children: [
-                                CustomCard(),
-                                CustomCard(),
-                                CustomCard(),
-                              ],
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
+        body: Container(
+          child: Column(
+            children: [
+              ExploreTopSection(username: username),
+              Expanded(child: SuggestedProfessionals()),
+            ],
           ),
         ),
       ),

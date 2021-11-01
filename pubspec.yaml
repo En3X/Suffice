@@ -26,7 +26,9 @@ dependencies:
   geocoding:
   geolocator: ^7.7.1
   flutter_rating_bar: ^4.0.0
-
+  google_maps_flutter: 
+  flutter_launcher_icons:
+  fluttertoast:
 
 
 
@@ -37,6 +39,11 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+    
+flutter_icons:
+  image_path: "icon/icon.png" 
+  android: true
+  ios: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

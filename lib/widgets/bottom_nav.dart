@@ -16,6 +16,7 @@ class _BotNavState extends State<BotNav> {
   @override
   Widget build(BuildContext context) {
     int _selectedIndex = widget.pageIndex;
+
     return BottomNavigationBar(
       items: [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
@@ -23,12 +24,17 @@ class _BotNavState extends State<BotNav> {
         BottomNavigationBarItem(
             icon: Icon(Icons.account_circle), label: "Profile"),
       ],
-      onTap: _onBottomNavTap,
+      onTap: (int index) {
+        _onBottomNavTap(index, _selectedIndex);
+      },
       currentIndex: _selectedIndex,
     );
   }
 
-  void _onBottomNavTap(int index) {
+  void _onBottomNavTap(int index, int _selectedIndex) {
+    if (index == _selectedIndex) {
+      return;
+    }
     if (index == 1) {
       Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => FavoritesPage(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:suffice/widgets/bottom_nav.dart';
+import 'package:suffice/widgets/draggable_bottom_list.dart';
 import 'package:suffice/widgets/google_maps.dart';
 import 'package:suffice/widgets/search_bar.dart';
 
@@ -34,10 +35,11 @@ class _ExplorePageState extends State<ExplorePage> {
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: SearchBar(),
-                ))
+                )),
+            DraggableBottomList()
           ],
         ),
-        bottomNavigationBar: BotNav(pageIndex: 0, usertype: widget.usertype),
+        // bottomNavigationBar: BotNav(pageIndex: 0, usertype: widget.usertype),
       ),
     );
   }

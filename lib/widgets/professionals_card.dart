@@ -24,8 +24,8 @@ class _ProfessionalsCardState extends State<ProfessionalsCard> {
             borderRadius: BorderRadius.circular(30),
             child: Image(
               image: AssetImage('images/portrait.jpg'),
-              width: 140,
-              height: 200,
+              width: 100,
+              height: 160,
             ),
           ),
           Padding(
@@ -35,48 +35,88 @@ class _ProfessionalsCardState extends State<ProfessionalsCard> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    padding: EdgeInsets.all(5),
-                    child: Text(
-                      professionals.profession,
-                      style: TextStyle(color: Color.fromRGBO(244, 244, 248, 1)),
-                    ),
-                    decoration: BoxDecoration(
-                        color: Color.fromRGBO(82, 67, 194, 1),
-                        borderRadius: BorderRadius.circular(6)),
+                  Row(
+                    children: [
+                      Container(
+                        margin:
+                            EdgeInsets.symmetric(vertical: 4, horizontal: 1),
+                        child: Text(
+                          professionals.name,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                      // Container(
+                      //   padding: EdgeInsets.all(5),
+                      //   child: Text(
+                      //     professionals.profession,
+                      //     style: TextStyle(
+                      //         color: Color.fromRGBO(244, 244, 248, 1)),
+                      //   ),
+                      //   decoration: BoxDecoration(
+                      //       color: Color.fromRGBO(82, 67, 194, 1),
+                      //       borderRadius: BorderRadius.circular(6)),
+                      // ),
+                    ],
                   ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 4),
-                    child: Text(
-                      professionals.name,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                  Container(
+                  // Container(
+                  //   child: Row(
+                  //     children: [
+                  //       Container(
+                  //         child: Icon(Icons.account_box_outlined),
+                  //         margin: EdgeInsets.only(right: 4),
+                  //       ),
+                  //       Text(professionals.numOfCustomers.toString()),
+                  //       Container(
+                  //         margin: EdgeInsets.only(left: 14),
+                  //         child: getProfessionalsAvailability(professionals),
+                  //       )
+                  //     ],
+                  //   ),
+                  // ),
+                  // Container(
+                  //   margin: EdgeInsets.symmetric(vertical: 4),
+                  //   child: RatingBarIndicator(
+                  //     itemBuilder: (context, index) => Icon(Icons.star,
+                  //         color: Color.fromRGBO(82, 67, 194, 1)),
+                  //     rating: professionals.rating,
+                  //     itemSize: 23,
+                  //   ),
+                  // ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
                     child: Row(
                       children: [
                         Container(
-                          child: Icon(Icons.account_box_outlined),
-                          margin: EdgeInsets.only(right: 4),
+                          padding: EdgeInsets.all(5),
+                          child: Text(
+                            professionals.profession,
+                            style: TextStyle(
+                                color: Color.fromRGBO(244, 244, 248, 1)),
+                          ),
+                          decoration: BoxDecoration(
+                              color: Color.fromRGBO(82, 67, 194, 1),
+                              borderRadius: BorderRadius.circular(6)),
                         ),
-                        Text(professionals.numOfCustomers.toString()),
-                        Container(
-                          margin: EdgeInsets.only(left: 14),
-                          child: getProfessionalsAvailability(professionals),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: Container(
+                            child: Row(
+                              children: [
+                                Icon(Icons.star_rate),
+                                Text(
+                                  "${professionals.rating}",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                )
+                              ],
+                            ),
+                          ),
                         )
                       ],
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 4),
-                    child: RatingBarIndicator(
-                      itemBuilder: (context, index) => Icon(Icons.star,
-                          color: Color.fromRGBO(82, 67, 194, 1)),
-                      rating: professionals.rating,
-                      itemSize: 23,
                     ),
                   ),
                   TextButton.icon(

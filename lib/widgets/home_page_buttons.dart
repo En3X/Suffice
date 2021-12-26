@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:suffice/pages/login_scrreen.dart';
 import '../pages/explore.dart';
 
 class HomePageButtons extends StatelessWidget {
@@ -32,7 +34,21 @@ class HomePageButtons extends StatelessWidget {
                   backgroundColor: MaterialStateProperty.all<Color>(
                       Color.fromRGBO(244, 244, 248, 1)))),
           TextButton.icon(
-              onPressed: () {},
+              // onPressed: () {
+              //   Navigator.push(
+              //     context,
+              //     MaterialPageRoute(
+              //       builder: (context)=>LogInScreen()
+              //     )
+              //   );
+              // },
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LogInScreen()));
+                // Fluttertoast.showToast(
+                //     msg: "Login page yet to be made",
+                //     toastLength: Toast.LENGTH_LONG);
+              },
               icon: Icon(Icons.verified_user),
               label: Text("Login", style: TextStyle(fontSize: 20)),
               style: ButtonStyle(

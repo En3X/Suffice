@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:suffice/widgets/bottom_nav.dart';
 import 'package:suffice/widgets/draggable_bottom_list.dart';
 import 'package:suffice/widgets/google_maps.dart';
 import 'package:suffice/widgets/search_bar.dart';

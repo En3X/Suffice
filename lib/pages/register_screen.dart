@@ -100,7 +100,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 15,
                     ),
                     Padding(
                       padding: EdgeInsets.all(3),
@@ -139,6 +139,36 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   ),
                                 ),
                                 validator: (value) {},
+                              ),
+                              SizedBox(
+                                height: 15,
+                              ),
+                              TextFormField(
+                                //Full
+                                cursorColor:
+                                    Theme.of(context).cursorColor, //Name
+                                keyboardType: TextInputType.text,
+                                decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor: Color(0xfff3f2fa),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(13),
+                                    borderSide: BorderSide(
+                                      color: Color(0xff5244bf),
+                                      width: 1.5,
+                                    ),
+                                  ),
+                                  suffixIcon: Icon(Icons.person),
+                                  hintText: 'Full Name',
+                                  hintStyle: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Color(0xff5244bf)),
+                                  ),
+                                ),
                               ),
                               SizedBox(
                                 height: 15,
@@ -199,7 +229,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 ),
                               ),
                               SizedBox(
-                                height: 40,
+                                height: 35,
                               ),
                               SizedBox(
                                 height: 55,
@@ -224,7 +254,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 ),
                               ),
                               SizedBox(
-                                height: 35,
+                                height: 30,
                               ),
                               GestureDetector(
                                 onTap: () {},

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:suffice/pages/login_scrreen.dart';
 import '../pages/explore.dart';
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:suffice/pages/register_screen.dart';
 
 GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -85,7 +86,13 @@ class _LogInScreenState extends State<LogInScreen> {
                             Expanded(
                               flex: 7,
                               child: GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              SignUpScreen()));
+                                },
                                 child: Text(
                                   'Create New',
                                   style: TextStyle(

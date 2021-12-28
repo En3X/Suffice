@@ -62,6 +62,7 @@ class _GoogleMapBodyState extends State<GoogleMapBody> {
         mapType: MapType.normal,
         zoomControlsEnabled: false,
         myLocationEnabled: true,
+        compassEnabled: false,
         initialCameraPosition: _kGooglePlex,
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);

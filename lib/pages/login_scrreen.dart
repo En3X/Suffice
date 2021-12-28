@@ -1,5 +1,13 @@
+// ignore_for_file: unnecessary_statements
+
+import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:suffice/pages/explore.dart';
 import 'package:suffice/pages/register_screen.dart';
+import 'package:suffice/services/firebase_services.dart';
 
 GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -9,6 +17,7 @@ class LogInScreen extends StatefulWidget {
 }
 
 class _LogInScreenState extends State<LogInScreen> {
+  String password = "", username = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -123,6 +132,7 @@ class _LogInScreenState extends State<LogInScreen> {
                               ),
                               TextFormField(
                                 //Email
+                                onChanged: (value) => {this.username = value},
                                 cursorColor:
                                     Theme.of(context).cursorColor, //Address
                                 keyboardType: TextInputType.emailAddress,
@@ -147,12 +157,12 @@ class _LogInScreenState extends State<LogInScreen> {
                                         BorderSide(color: Color(0xff5244bf)),
                                   ),
                                 ),
-                                validator: (value) {},
                               ),
                               SizedBox(
                                 height: 20,
                               ),
                               TextFormField(
+                                onChanged: (value) => {this.password = value},
                                 obscureText: true, //Password
                                 cursorColor:
                                     Theme.of(context).cursorColor, //Field
@@ -188,7 +198,7 @@ class _LogInScreenState extends State<LogInScreen> {
                                     Expanded(
                                       flex: 6,
                                       child: Text(
-                                        'Forgot Password?/', //forgot
+                                        'Forgot Password?', //forgot
                                         style: TextStyle(
                                           //password
                                           fontSize: 18,
@@ -222,8 +232,7 @@ class _LogInScreenState extends State<LogInScreen> {
                                 width: 500,
                                 child: ElevatedButton(
                                   onPressed: () {
-                                    //Login
-                                    //button
+                                    validatePassword();
                                   },
                                   style: ElevatedButton.styleFrom(
                                       primary: Color(0xff5244bf),
@@ -243,7 +252,13 @@ class _LogInScreenState extends State<LogInScreen> {
                                 height: 35,
                               ),
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              ExplorePage(usertype: "guest")));
+                                },
                                 child: Text(
                                   'Skip Now',
                                   style: TextStyle(
@@ -268,15 +283,30 @@ class _LogInScreenState extends State<LogInScreen> {
       ),
     ));
   }
-}
 
-// String validatePassword(String value) {
-//   if (value.isEmpty) {
-//     return "* Required";
-//   } else if (value.length < 6) {
-//     return "Should be atleast 6 characters";
-//   } else if (value.length > 15) {
-//     return "Cannot exceed 15 characters";
-//   } else
-//     return "";
-// }
+  void validatePassword() async {
+    final auth = FirebaseAuth.instance;
+    // if (this.username.isEmpty || this.password.isEmpty) {
+    //   Fluttertoast.showToast(msg: "Password or username is a required field");
+    // } else {
+    //   try {
+    //     await auth.signInWithEmailAndPassword(
+    //         email: this.username, password: this.password);
+    //     Fluttertoast.showToast(msg: "Login successful");
+    //   } catch (e) {
+    //     if (e.toString().contains("user-not-found")) {
+    //       Fluttertoast.showToast(
+    //           msg: "No user found for given email.\nRegister now");
+    //     } else {
+    //       if (e.toString().contains("Invalid password")) {
+    //         Fluttertoast.showToast(msg: "Email/Password Invalid");
+    //       } else {
+    //         Fluttertoast.showToast(msg: e.toString());
+    //       }
+    //     }
+    //   }
+    // }
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => ExplorePage(usertype: "user")));
+  }
+}

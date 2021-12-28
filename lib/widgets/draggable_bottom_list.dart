@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:suffice/pages/profile.dart';
 import 'package:suffice/services/demo_professional.dart';
+import 'package:suffice/services/professionals.dart';
+import 'package:suffice/services/user_service.dart';
 import 'package:suffice/widgets/professionals_card.dart';
 
 class DraggableBottomList extends StatefulWidget {
@@ -42,21 +45,36 @@ class _DraggableBottomListState extends State<DraggableBottomList> {
                               subtitle: Text(
                                   "Some of our highly rated professionals"),
                             ),
-                            Container(
-                                child: ProfessionalsCard(
-                              professionals: pro[index],
-                            ))
+                            GestureDetector(
+                              onTap: () => {moveToProfilePage(pro[index])},
+                              child: Container(
+                                  child: ProfessionalsCard(
+                                professionals: pro[index],
+                              )),
+                            )
                           ],
                         );
                       }
-                      return Container(
-                          child: ProfessionalsCard(
-                        professionals: pro[index],
-                      ));
+                      return GestureDetector(
+                        onTap: () => {moveToProfilePage(pro[index])},
+                        child: Container(
+                            child: ProfessionalsCard(
+                          professionals: pro[index],
+                        )),
+                      );
                     },
                   ),
                 ),
               ),
             ));
+  }
+
+  moveToProfilePage(Professionals professionals) {
+    User user = new User(professionals.name, "uuid", professionals.email,
+        "abc123", "", professionals.numOfCustomers, professionals.rating);
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => ProfilePage(user: user, selfView: false)));
   }
 }

@@ -4,6 +4,7 @@ class Professionals {
   int numOfCustomers;
   String imageLocation;
   String availability;
-  Professionals(this.name, this.profession, this.rating, this.numOfCustomers,
-      this.imageLocation, this.availability);
+  String email;
+  Professionals(this.name, this.email, this.profession, this.rating,
+      this.numOfCustomers, this.imageLocation, this.availability);
 }

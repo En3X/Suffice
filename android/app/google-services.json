@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "201661186306",
+    "project_id": "suffice-fb",
+    "storage_bucket": "suffice-fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201661186306:android:fc410bee6d17f0487c421b",
+        "android_client_info": {
+          "package_name": "com.enex.suffice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "201661186306-got62bdkgabg87nsgid3cdj7hq4uonlv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvTTM0ds6jd5HqFqWmRB54jsc24Jh2zRM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "201661186306-got62bdkgabg87nsgid3cdj7hq4uonlv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

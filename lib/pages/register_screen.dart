@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:suffice/pages/explore.dart';
+import 'package:suffice/pages/login_scrreen.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -83,7 +85,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             Expanded(
                               flex: 7,
                               child: GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => LogInScreen()));
+                                },
                                 child: Text(
                                   'Login Here',
                                   style: TextStyle(
@@ -238,6 +245,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   onPressed: () {
                                     //Signup
                                     // button
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                ExplorePage(usertype: "user")));
                                   },
                                   style: ElevatedButton.styleFrom(
                                       primary: Color(0xff5244bf),
@@ -257,7 +269,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 height: 30,
                               ),
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              ExplorePage(usertype: "guest")));
+                                },
                                 child: Text(
                                   'Skip Now',
                                   style: TextStyle(

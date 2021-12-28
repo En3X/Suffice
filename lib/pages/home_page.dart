@@ -3,11 +3,6 @@ import 'package:suffice/widgets/home_page_buttons.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
-  final String fontBold = 'MontserratBold';
-  final String fontRegular = 'MontserratRegular';
-  final String fontLight = 'MontserratLight';
-  final String fontMedium = 'MontserratMedium';
-
   TextStyle _getTextStyle(double size) {
     return TextStyle(
         color: Colors.black, decoration: TextDecoration.none, fontSize: size);
